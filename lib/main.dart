@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/screens/home_screen.dart';
-import 'package:news_app/utilities/app_router.dart';
+import 'package:flutter/services.dart';
+import 'package:news_app/screens/main_screen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+    [DeviceOrientation.portraitUp],
+  );
   runApp(MyApp());
 }
 
@@ -11,11 +15,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Colors.teal[900],
       ),
-      home: HomeScreen(),
+      home: MainScreen(),
       title: 'News App',
-      onGenerateRoute: AppRouter().onGenerateRoute,
     );
   }
 }

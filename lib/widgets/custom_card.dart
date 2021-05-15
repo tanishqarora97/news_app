@@ -17,7 +17,7 @@ class CustomCard extends StatelessWidget {
         horizontal: 20,
         vertical: 10,
       ),
-      height: 150,
+      height: 140,
       child: Row(
         children: [
           Column(
@@ -42,7 +42,7 @@ class CustomCard extends StatelessWidget {
                   style: kCustomCardHeadingStyle,
                 ),
               ),
-              Padding(
+           Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: Text(
                   description,
@@ -54,6 +54,9 @@ class CustomCard extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.calendar_today_outlined,
+                  ),
+                  SizedBox(
+                    width: 10,
                   ),
                   Text(
                     '03-03-2021',
@@ -68,9 +71,7 @@ class CustomCard extends StatelessWidget {
                       padding: const EdgeInsets.all(5.0),
                       child: Text(
                         'Sports',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
+                        style: kInfoTextStyle,
                       ),
                     ),
                   ),

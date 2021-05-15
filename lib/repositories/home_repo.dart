@@ -5,17 +5,27 @@ class HomeRepo {
     CustomCardModel(
       'This is Heading of the realte\nnew ws this is and go on',
       'This is Heading of the realte new\nws this is another heading',
-      'assets/modi1.jpg',
+      'assets/modi.jpg',
     ),
     CustomCardModel(
       'This is Heading of the realte\nnew ws this is and go on',
       'This is Heading of the realte new\nws this is another heading',
-      'assets/modi1.jpg',
+      'assets/pm.jpg',
     ),
     CustomCardModel(
       'This is Heading of the realte\nnew ws this is and go on',
       'This is Heading of the realte new\nws this is another heading',
-      'assets/modi1.jpg',
+      'assets/news.jpg',
+    ),
+    CustomCardModel(
+      'This is Heading of the realte\nnew ws this is and go on',
+      'This is Heading of the realte new\nws this is another heading',
+      'assets/kejriwal.jpg',
+    ),
+    CustomCardModel(
+      'This is Heading of the realte\nnew ws this is and go on',
+      'This is Heading of the realte new\nws this is another heading',
+      'assets/movie.jpg',
     ),
   ];
 }

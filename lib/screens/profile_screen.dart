@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/widgets/profile_form.dart';
-import 'package:news_app/widgets/side_drawer.dart';
 
 class ProfileScreen extends StatelessWidget {
   static const routeName = "profile-screen";
@@ -9,10 +8,6 @@ class ProfileScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey[100],
-        appBar: AppBar(
-          title: Text('Profile Screen'),
-        ),
-        drawer: SideDrawer(),
         body: SingleChildScrollView(
           child: Column(
             children: [

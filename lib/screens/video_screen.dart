@@ -1,11 +1,8 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:news_app/repositories/home_repo.dart';
-import 'package:news_app/widgets/custom_card.dart';
-import 'package:news_app/widgets/side_drawer.dart';
+import 'package:news_app/repositories/video_repo.dart';
+import 'package:news_app/widgets/video_card.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class VideoScreen extends StatefulWidget {
@@ -44,6 +41,7 @@ class _VideoScreenState extends State<VideoScreen> {
   @override
   void initState() {
     super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     _controller = YoutubePlayerController(
       initialVideoId: _ids.first,
       flags: const YoutubePlayerFlags(
@@ -89,8 +87,6 @@ class _VideoScreenState extends State<VideoScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(),
-        drawer: SideDrawer(),
         body: YoutubePlayerBuilder(
           onExitFullScreen: () {
             SystemChrome.setPreferredOrientations(DeviceOrientation.values);
@@ -112,16 +108,6 @@ class _VideoScreenState extends State<VideoScreen> {
                   maxLines: 1,
                 ),
               ),
-              IconButton(
-                icon: const Icon(
-                  Icons.settings,
-                  color: Colors.white,
-                  size: 25.0,
-                ),
-                onPressed: () {
-                  log('Settings Tapped!');
-                },
-              ),
             ],
             onReady: () {
               _isPlayerReady = true;
@@ -129,7 +115,6 @@ class _VideoScreenState extends State<VideoScreen> {
             onEnded: (data) {
               _controller
                   .load(_ids[(_ids.indexOf(data.videoId) + 1) % _ids.length]);
-              _showSnackBar('Next Video Started!');
             },
           ),
           builder: (context, player) => Scaffold(
@@ -194,12 +179,11 @@ class _VideoScreenState extends State<VideoScreen> {
                       ),
                       Column(
                         children: List.generate(
-                          HomeRepo.homeScreenList.length,
+                          VideoRepo.videoScreenList.length,
                           (index) {
-                            return CustomCard(
-                              HomeRepo.homeScreenList[index].headingText,
-                              HomeRepo.homeScreenList[index].description,
-                              HomeRepo.homeScreenList[index].image,
+                            return VideoCard(
+                              VideoRepo.videoScreenList[index].image,
+                              VideoRepo.videoScreenList[index].text,
                             );
                           },
                         ),
@@ -210,27 +194,6 @@ class _VideoScreenState extends State<VideoScreen> {
               ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-
-  void _showSnackBar(String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          message,
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-            fontWeight: FontWeight.w300,
-            fontSize: 16.0,
-          ),
-        ),
-        backgroundColor: Colors.blueAccent,
-        behavior: SnackBarBehavior.floating,
-        elevation: 1.0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(50.0),
         ),
       ),
     );

@@ -7,12 +7,6 @@ class ProfileForm extends StatefulWidget {
 
 class _ProfileFormState extends State<ProfileForm> {
   final _formKey = GlobalKey<FormState>();
-  TextEditingController _locationController = TextEditingController();
-  TextEditingController _pincodeController = TextEditingController();
-  TextEditingController _dateOfBirthController = TextEditingController();
-  TextEditingController _genderController = TextEditingController();
-  TextEditingController _whatsappController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -22,40 +16,44 @@ class _ProfileFormState extends State<ProfileForm> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TextFormField(
-            controller: _locationController,
+            enabled: false,
             decoration: InputDecoration(
               labelText: 'Location',
             ),
+            initialValue:
+                'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+            maxLines: 2,
           ),
           TextFormField(
-            controller: _pincodeController,
             decoration: InputDecoration(
               labelText: 'Pincode',
             ),
+            initialValue: 'xxxxxxx',
           ),
           TextFormField(
-            controller: _dateOfBirthController,
             decoration: InputDecoration(
               labelText: 'Date of Birth',
             ),
+            initialValue: 'dd-mm-yyyy',
           ),
           TextFormField(
-            controller: _genderController,
             decoration: InputDecoration(
               labelText: 'Gender',
             ),
+            initialValue: 'Male',
           ),
           TextFormField(
-            controller: _whatsappController,
             decoration: InputDecoration(
               labelText: 'WhatsApp',
+              prefixText: '+91',
             ),
+            initialValue: 'xxxxxxxxx',
           ),
           TextFormField(
-            controller: _emailController,
             decoration: InputDecoration(
               labelText: 'Email',
             ),
+            initialValue: 'xxxxx@gmail.com',
           ),
         ],
       ),
