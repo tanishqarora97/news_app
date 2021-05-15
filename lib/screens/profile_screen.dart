@@ -1,21 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/widgets/profile_form.dart';
 import 'package:news_app/widgets/side_drawer.dart';
 
-class ProfileScreen extends StatefulWidget {
+class ProfileScreen extends StatelessWidget {
   static const routeName = "profile-screen";
-
-  @override
-  _ProfileScreenState createState() => _ProfileScreenState();
-}
-
-class _ProfileScreenState extends State<ProfileScreen> {
-  final _formKey = GlobalKey<FormState>();
-  TextEditingController _locationController = TextEditingController();
-  TextEditingController _pincodeController = TextEditingController();
-  TextEditingController _dateOfBirthController = TextEditingController();
-  TextEditingController _genderController = TextEditingController();
-  TextEditingController _whatsappController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -87,50 +75,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 color: Colors.white,
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.6,
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextFormField(
-                        controller: _locationController,
-                        decoration: InputDecoration(
-                          labelText: 'Location',
-                        ),
-                      ),
-                      TextFormField(
-                        controller: _pincodeController,
-                        decoration: InputDecoration(
-                          labelText: 'Pincode',
-                        ),
-                      ),
-                      TextFormField(
-                        controller: _dateOfBirthController,
-                        decoration: InputDecoration(
-                          labelText: 'Date of Birth',
-                        ),
-                      ),
-                      TextFormField(
-                        controller: _genderController,
-                        decoration: InputDecoration(
-                          labelText: 'Gender',
-                        ),
-                      ),
-                      TextFormField(
-                        controller: _whatsappController,
-                        decoration: InputDecoration(
-                          labelText: 'WhatsApp',
-                        ),
-                      ),
-                      TextFormField(
-                        controller: _emailController,
-                        decoration: InputDecoration(
-                          labelText: 'Email',
-                        ),
-                      ),
-                    ],
-                  ),
+                child: Container(
+                  child: ProfileForm(),
                 ),
               )
             ],

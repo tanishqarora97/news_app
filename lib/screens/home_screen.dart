@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/repositories/home_repo.dart';
 import 'package:news_app/widgets/custom_card.dart';
 import 'package:news_app/widgets/side_drawer.dart';
 
@@ -14,14 +15,16 @@ class HomeScreen extends StatelessWidget {
         drawer: SideDrawer(),
         body: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              CustomCard(),
-              CustomCard(),
-              CustomCard(),
-              CustomCard(),
-              CustomCard(),
-            ],
+            children: List.generate(
+              HomeRepo.homeScreenList.length,
+              (index) {
+                return CustomCard(
+                  HomeRepo.homeScreenList[index].headingText,
+                  HomeRepo.homeScreenList[index].description,
+                  HomeRepo.homeScreenList[index].image,
+                );
+              },
+            ),
           ),
         ),
       ),

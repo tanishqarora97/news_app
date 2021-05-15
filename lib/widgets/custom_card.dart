@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/constants.dart';
 
 class CustomCard extends StatelessWidget {
+  final String image;
+  final String headingText;
+  final String description;
+  CustomCard(
+    this.headingText,
+    this.description,
+    this.image,
+  );
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,7 +25,7 @@ class CustomCard extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Image.asset(
-                  'assets/modi1.jpg',
+                  image,
                   fit: BoxFit.fill,
                   height: 105,
                   width: 105,
@@ -29,20 +38,15 @@ class CustomCard extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: Text(
-                  'This is Heading of the realte\nnew ws this is and go on',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w900,
-                    fontSize: 19,
-                  ),
+                  headingText,
+                  style: kCustomCardHeadingStyle,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: Text(
-                  'This is Heading of the realte new\nws this is another heading',
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
+                  description,
+                  style: kCustomCardDescriptionStyle,
                 ),
               ),
               Row(
