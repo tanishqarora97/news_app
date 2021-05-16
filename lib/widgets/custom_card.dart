@@ -13,77 +13,91 @@ class CustomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: 20,
-        vertical: 10,
-      ),
-      height: 140,
-      child: Row(
-        children: [
-          Column(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.asset(
-                  image,
-                  fit: BoxFit.fill,
-                  height: 105,
-                  width: 105,
+      margin: EdgeInsets.only(top: 20),
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 10,
+        ),
+        height: 140,
+        width: MediaQuery.of(context).size.width,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.asset(
+                    image,
+                    fit: BoxFit.fill,
+                    height: 120,
+                    width: 115,
+                  ),
                 ),
-              ),
-            ],
-          ),
-          Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: Text(
-                  headingText,
-                  style: kCustomCardHeadingStyle,
-                ),
-              ),
-           Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: Text(
-                  description,
-                  style: kCustomCardDescriptionStyle,
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              ],
+            ),
+            Container(
+              height: 145,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(
-                    Icons.calendar_today_outlined,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    '03-03-2021',
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Card(
-                    color: Colors.orange,
-                    elevation: 4,
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Text(
-                        'Sports',
-                        style: kInfoTextStyle,
-                      ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Text(
+                      headingText,
+                      style: kCustomCardHeadingStyle,
                     ),
                   ),
-                  SizedBox(
-                    width: 10,
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Text(
+                      description,
+                      style: kCustomCardDescriptionStyle,
+                    ),
                   ),
-                  Icon(Icons.bookmark_border)
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 5),
+                    width: MediaQuery.of(context).size.width * 0.61,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Icon(
+                          Icons.calendar_today_outlined,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          '03-03-2021',
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Container(
+                          color: Colors.orange[800],
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 18,
+                            vertical: 1,
+                          ),
+                          child: Text(
+                            'Sports',
+                            style: kInfoTextStyle,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Icon(Icons.bookmark_border)
+                      ],
+                    ),
+                  ),
                 ],
               ),
-            ],
-          ),
-        ],
+            ),
+          ],
+        ),
       ),
     );
   }

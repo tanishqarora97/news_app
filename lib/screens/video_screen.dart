@@ -143,6 +143,7 @@ class _VideoScreenState extends State<VideoScreen> {
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 17,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                       SizedBox(
@@ -171,11 +172,20 @@ class _VideoScreenState extends State<VideoScreen> {
                       Container(
                         height: 40,
                         child: Card(
+                          color: Colors.grey[200],
                           elevation: 6,
                           child: Center(
-                            child: Text('Information'),
+                            child: Text(
+                              'Information',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
                           ),
                         ),
+                      ),
+                      SizedBox(
+                        height: 15,
                       ),
                       Column(
                         children: List.generate(

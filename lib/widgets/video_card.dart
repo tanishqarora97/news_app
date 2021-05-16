@@ -31,51 +31,65 @@ class VideoCard extends StatelessWidget {
               ),
             ],
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: Text(
-                  text,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
-                  style: kVideoCardHeadingStyle,
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 5,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(
+                    text,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                    style: kVideoCardHeadingStyle,
+                  ),
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Icon(
-                    Icons.calendar_today_outlined,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    '03-03-2021',
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Container(
-                    width: 80,
-                    child: Card(
-                      color: Colors.orange[900],
-                      elevation: 4,
-                      child: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: Text(
-                          'Info',
-                          textAlign: TextAlign.center,
-                          style: kInfoTextStyle,
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(
+                        Icons.calendar_today_outlined,
+                        color: Colors.grey,
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        '03-03-2021',
+                        style: TextStyle(
+                          color: Colors.grey,
                         ),
                       ),
-                    ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Container(
+                        width: 80,
+                        child: Card(
+                          color: Colors.orange[900],
+                          elevation: 4,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 21, vertical: 2),
+                            child: Text(
+                              'Info',
+                              textAlign: TextAlign.center,
+                              style: kInfoTextStyle,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
         ],
       ),

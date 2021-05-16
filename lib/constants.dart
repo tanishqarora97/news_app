@@ -2,18 +2,20 @@ import 'package:flutter/material.dart';
 
 TextStyle kCustomCardHeadingStyle = TextStyle(
   fontWeight: FontWeight.w900,
-  fontSize: 19,
+  fontSize: 17,
 );
 
 TextStyle kCustomCardDescriptionStyle = TextStyle(
-  fontSize: 16,
+  fontSize: 15,
+  color: Colors.grey,
 );
 
 TextStyle kVideoCardHeadingStyle = TextStyle(
-  fontWeight: FontWeight.w900,
-  fontSize: 18,
+  fontWeight: FontWeight.w700,
+  fontSize: 16,
 );
 
 TextStyle kInfoTextStyle = TextStyle(
   color: Colors.white,
+  fontWeight: FontWeight.w700,
 );
